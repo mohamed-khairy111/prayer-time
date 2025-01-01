@@ -4,19 +4,105 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
-    <div>
-      <!-- CITY NAME + DATE -->
-      <div>
+    <div style="height: 100vh">
+      <div style="margin-top: 50px">
         <!-- CITY NAME -->
-        <div>
-          <h1>EYGPT</h1>
+        <div class="city-name-date">
+          <h1 id="city-name">EYGPT</h1>
+          <h6 id="date">Friday 15 Novamber</h6>
         </div>
         <!--// CITY NAME //-->
+
+        <hr />
+        <!-- PRAYER TIMING -->
+        <div
+          class="center"
+          style="height: 300px; margin-top: 80px; justify-content: space-around"
+        >
+          <!-- card -->
+          <div class="card">
+            <div class="header">
+              <h1>fajr</h1>
+            </div>
+            <div class="body center">
+              <h1 class="time">4:30</h1>
+            </div>
+          </div>
+          <!--// card //-->
+          <!-- card -->
+          <div class="card">
+            <div class="header">
+              <h1>fajr</h1>
+            </div>
+            <div class="body center">
+              <h1 class="time">4:30</h1>
+            </div>
+          </div>
+          <!--// card //-->
+          <!-- card -->
+          <div class="card">
+            <div class="header">
+              <h1>fajr</h1>
+            </div>
+            <div class="body center">
+              <h1 class="time">4:30</h1>
+            </div>
+          </div>
+          <!--// card //-->
+          <!-- card -->
+          <div class="card">
+            <div class="header">
+              <h1>fajr</h1>
+            </div>
+            <div class="body center">
+              <h1 class="time">4:30</h1>
+            </div>
+          </div>
+          <!--// card //-->
+          <!-- card -->
+          <div class="card">
+            <div class="header">
+              <h1>fajr</h1>
+            </div>
+            <div class="body center">
+              <h1 class="time">4:30</h1>
+            </div>
+          </div>
+          <!--// card //-->
+        </div>
+        <!--// PRAYER TIMING //-->
+        <!-- change city select -->
+        <div class="center" style="margin-top: 120px">
+          <select
+            name=""
+            id=""
+            style="
+              width: 300px;
+              height: 35px;
+              font-size: 25px;
+              font-family: Work Sans, serif;
+              background: none;
+              color: white;
+              padding: 5px;
+              border-radius: 30px;
+            "
+          >
+            <option value="" class="option">EYGPT</option>
+            <option value="" class="option">moraco</option>
+            <option value="" class="option">palastine</option>
+          </select>
+        </div>
+        <!--// change city select //-->
       </div>
-      <!--// CITY NAME + DATE //-->
     </div>
     <script src="script.js"></script>
   </body>
