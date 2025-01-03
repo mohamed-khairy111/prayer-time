@@ -27,6 +27,29 @@ let selection = document.getElementById('selection');
 let city_name = document.getElementById('city-name');
 let date = document.getElementById('date');
 
+city_name.innerHTML = 'Kafr ash Shaykh';
+axios
+  .get('http://api.aladhan.com/v1/timingsByCity', {
+    params: EG_KFS,
+  })
+  .then(function (response) {
+    const timings = response.data.data.timings;
+    FillTimeForPrayer('fajr-time', timings.Fajr);
+    FillTimeForPrayer('Dhuhr-time', timings.Dhuhr);
+    FillTimeForPrayer('Asr-time', timings.Asr);
+    FillTimeForPrayer('Maghrib-time', timings.Maghrib);
+    FillTimeForPrayer('Isha-time', timings.Isha);
+
+    const weekDay = response.data.data.date.gregorian.weekday.en;
+    const DayNum = response.data.data.date.gregorian.day;
+    const month = response.data.data.date.gregorian.month.en;
+    date.innerHTML = `${weekDay} ${DayNum} ${month}`;
+    city_name.innerHTML = city;
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+
 selection.addEventListener('change', () => {
   let city = selection.value;
   if (city == 'Kafr ash Shaykh') {
@@ -181,6 +204,14 @@ selection.addEventListener('change', () => {
   }
 });
 
+const Convert_24hours_to_12hours = (time24) => {
+  let [hours, minutes] = time24.split(':').map(Number);
+  const period = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12 || 12;
+  return `${hours}:${minutes.toString().padStart(2, '0')} ${period}`;
+};
+
 const FillTimeForPrayer = (id, time) => {
-  document.getElementById(id).innerHTML = time;
+  let time12 = Convert_24hours_to_12hours(time);
+  document.getElementById(id).innerHTML = time12;
 };
